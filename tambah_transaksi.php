@@ -14,14 +14,14 @@
         $Jenis = $_POST['jenis_transaksi'];
         $Barang = $_POST['barang_id'];
         $Jumlah = $_POST['jumlah_transaksi'];
-        $User = $_POST['user_id'];
+        $User = $_POST['id_member'];
         //menginput data ke database
         $a = mysqli_query($koneksi,"insert into transaksi values('','$Tanggal','$No','$Jenis','$Barang','$Jumlah','$User')");
         if($a){
             //mengalihkan ke halaman kembali
             header("location:tambah_transaksi.php");
         }else{
-            echo mysqli_error();
+            echo mysqli_error($koneksi);
         }
     }
 ?>
@@ -54,8 +54,8 @@
                 <td><input type="number" name="jumlah_transaksi"></td>
             </tr>
             <tr>
-                <td>Id User</td>
-                <td><input type="number" name="user_id"></td>
+                <td>id member</td>
+                <td><input type="number" name="id_member"></td>
             </tr>
             <tr>
                 <td></td>
